@@ -1,8 +1,8 @@
 require 'sinatra'
 require 'flickraw'
 
-KEY = 'df00a7265f15c5a0bbf4ce9b0258b06d'
-SECRET = '244082323faf83f6'
+KEY = 'YOUR APP KEY'
+SECRET = 'YOUR APP SECRET'
 
 FlickRaw.api_key=KEY
 FlickRaw.shared_secret=SECRET
