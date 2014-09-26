@@ -1,0 +1,32 @@
+<h1>Flickr Auth</h1>
+
+<h2>Step 1 - Get the token and create the auth url.</h2>
+
+<h3>Token from Flickr</h3>
+<em>Flickraw got this for us:</em> <%= @token %>
+
+<h3>Auth URL</h3>
+<em>Flickraw built this string for us:</em> <a href="<%= @auth_url %>" target="_blank"><%= @auth_url %></a>
+
+<h2>Step 2 - Get Your Code From Flickr</h2>
+
+<p>(This is the stupidest Oauth I've ever used. FML Yahoo.</p>
+
+<h3>Click the auth URL, authorize our App to use your Flickr account. Then, on next page, copy the code from Flickr</h3>
+
+<h2>Step 3 - Enter Your Code Here</h2>
+
+<p>I've also stashed the oauth_token and oauth_token_secret in hidden inputs in the form.</p>
+
+<form action='/login' method='post'>
+  <!-- VISIBLE - this is for the user to enter their code from Flickr -->
+  <input name='code' type='text' placeholder='Enter your Flickr code here...'>
+
+  <!-- HIDDEN - we need to send back the oauth_token and oauth_token_secret on the next page -->
+  <!-- so I've added them as hidden inputs in the form so we can access them in '/login'. -->
+  <input type='hidden' name='oauth_token' value='<%= @token['oauth_token'] %>'>
+  <input type='hidden' name='oauth_token_secret' value='<%= @token['oauth_token_secret'] %>'>
+
+  <!-- SUBMIT BUTTON -->
+  <input name='submit' type='submit'>
+</form>
